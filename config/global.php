@@ -9,7 +9,7 @@ define("DB_NAME", "tienda");
 define("DB_USER", "root");
 
 //Contraseña de la base de datos
-define("DB_PASS", "");
+define("DB_PASSWORD", "");
 
 //Definimos la codificacion de los caracteres /Qué tipo de caracteres o codificacion que se va a usar en la DB
 define("DB_ENCODE","utf8");
