@@ -23,8 +23,9 @@ if(mysqli_connect_errno())
 //Definir un conjunto de funciones que nos ayude a la consulta de la BD 
 if(!function_exist('ejecutarConsulta')){
     //$sql es para conectarse a la base de datos con CURP, select, insert, update, delete
+    //Si no existe la función, la crea automáticamente
     function ejecutarConsulta($sql){
-        global= $conexion;
+        global $conexion;
 
         //Creo una variable para almacenar el resultado de la consulta
         $query= $conexion->($sql);
@@ -36,7 +37,7 @@ if(!function_exist('ejecutarConsulta')){
     //Creo una funcion que me permita obtener una sola fila de una tabla de la BD, recibe un parámetro
     function ejecutarConsultaSimpleFila($sql){
         //conectamos a la DB
-        global= $conexion;
+        global $conexion;
 
         //creo una variable para almacenar el resultado de la consulta
         $query= $conexion->query($sql);
@@ -47,7 +48,25 @@ if(!function_exist('ejecutarConsulta')){
         //retorno a la fila obtenida
         return $row;
     }
+    //Creo una función para obtener el id de una consulta o registro.
+    function ejecutarConsulta_retornarID($sql){
+        //Conectamos a la base de datosglobal
+        global $conexion;
+        //Creo una variable donde guardo la consulta
+        $query= $conexion->query($sql);
+        return $conexion->insert_id;
+    }
+    //Creamos una funcion para limpiar los campos de los input
+    //Se encarga de limpiar lo que se hay quedado suelto por ahí, borra todo antes de poder ver el formulario (evita info falsa)
+    function limpiarCadena($str){
+        //conectamos a la base de datos
+        $global $conexion;
+        //Retornamos el valor del campo limpio
+        $str= mysqli_real_scape_string($conexion, trim($str));
+        //Retornamos el valor 
+        returno htmlspecialchars($str);
 
+    }
 
 }
 
