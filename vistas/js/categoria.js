@@ -4,9 +4,12 @@ var tabla;
 //Creo una función int que se ejecuta al inicio de la aplicación
 function init(){
     mostrarform(false);
+    
+    //Llamamos a la función guardar y editar
+    $("#formulario").on("submit", function(e){
+    guardaryeditar(e);
+    });
 }
-
-//Llamamos a la función guardar y editar
 
 //Creo una función para limpiar el formulario
 function limpiar(){
@@ -51,7 +54,7 @@ function guardaryeditar(e){
         contentType: false,
         processData: false,
 
-        succes: function(daatos)
+        success: function(datos)
         {
             bootbox.alert(datos);
             mostrarform(false);

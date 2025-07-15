@@ -14,8 +14,7 @@ class Categoria{
     //Insertar un nuevo producto, usuario, etc. desde el formulario para insertarlo en la base de datos
     public function insertar($nombre, $descripcion){
         //Definimos una variable para almacenar la consulta
-        $sql = "INSERT INTO categoria (nombre, descripcion, condicion)
-        VALUES ($nombre, $descripcion, '1')";
+        $sql = "INSERT INTO categoria (nombre, descripcion, condicion) VALUES ('$nombre', '$descripcion', 1)";
         //Retornamos el resultado de la consulta
         return ejecutarConsulta($sql);
 

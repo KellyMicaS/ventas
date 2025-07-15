@@ -11,7 +11,7 @@ $conexion= new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 mysqli_query($conexion, ' SET NAMES "'.DB_ENCODE.'"');
 
 //Verificamos si la conexión a la BD fue exitosa
-//erno() es una funcion verificadora de errores
+//errno() es una funcion verificadora de errores
 if(mysqli_connect_errno())
 {
     printf("Falló la conexión a la base de datos: %s\n", mysqli_connect_errno());
@@ -21,14 +21,15 @@ if(mysqli_connect_errno())
 }
 
 //Definir un conjunto de funciones que nos ayude a la consulta de la BD 
-if(!function_exist('ejecutarConsulta')){
+if(!function_exists('ejecutarConsulta'))
+    {
     //$sql es para conectarse a la base de datos con CURP, select, insert, update, delete
     //Si no existe la función, la crea automáticamente
     function ejecutarConsulta($sql){
         global $conexion;
 
         //Creo una variable para almacenar el resultado de la consulta
-        $query= $conexion->($sql);
+        $query= $conexion->query($sql);
 
         //Retorno el resultado de la consulta
         return $query;
@@ -60,11 +61,11 @@ if(!function_exist('ejecutarConsulta')){
     //Se encarga de limpiar lo que se hay quedado suelto por ahí, borra todo antes de poder ver el formulario (evita info falsa)
     function limpiarCadena($str){
         //conectamos a la base de datos
-        $global $conexion;
+        global $conexion;
         //Retornamos el valor del campo limpio
-        $str= mysqli_real_scape_string($conexion, trim($str));
+        $str= mysqli_real_escape_string($conexion, trim($str));
         //Retornamos el valor 
-        returno htmlspecialchars($str);
+        return htmlspecialchars($str);
 
     }
 

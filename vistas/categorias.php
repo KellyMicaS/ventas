@@ -51,11 +51,11 @@ require 'header.php';
 
                                     <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <label for="descripcion">Ingrese la descripción</label>
-                                        <input type="text" class="form-control" name="descipcion" id="descripcion" required placeholder="Descripcion">
+                                        <input type="text" class="form-control" name="descripcion" id="descripcion" required placeholder="Descripcion">
                                     </div>
 
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <button class="btn btn primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
+                                        <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
                                         <button class="btn btn-danger" type="button" onclick="cancelarform()"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
                                     </div>
 
