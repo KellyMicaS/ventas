@@ -14,5 +14,8 @@
         <script src="../public/public/js/bootstrap.min.js"></script>
         <!--AdminLTE-->
         <script src="../public/public/js/app.js"></script>
+
+        <!--añadimos bootbox a nuestro proyecto-->
+        <spript src="../public/public/js/bootbox.min.js"></script>
     </body>
 </html>

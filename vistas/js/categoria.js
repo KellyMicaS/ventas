@@ -1,9 +1,12 @@
+//Creo una variable tabla 
 var tabla;
 
-//Creo una funci+on int que se ejecuta al inicio de la aplicación
+//Creo una función int que se ejecuta al inicio de la aplicación
 function init(){
     mostrarform(false);
 }
+
+//Llamamos a la función guardar y editar
 
 //Creo una función para limpiar el formulario
 function limpiar(){
@@ -17,7 +20,7 @@ function limpiar(){
 function mostrarform(flag){
     limpiar();
     if(flag){
-        $("#listadoregistros").hide();
+        $("#listadoregistro").hide();
         $("#formularioregistros").show();
         $("#btnGuardar").prop("disabled", false);
         $("#btnagregar").hide();
@@ -29,9 +32,33 @@ function mostrarform(flag){
 }
 
 //Función para cancelar el formulario
-function cancelarForm(){
+function cancelarform(){
     limpiar();
     mostrarform(false);
+}
+
+//Función para guardar y editar los datos
+function guardaryeditar(e){
+    //No se activa la acción predeterminada del evento
+    e.preventDefault();
+    $("#btnGuardar").prop("disabled", true);
+    var formData = new FormData ($("#formulario")[0]);
+
+    $.ajax({
+        url:"../controladores/categoria.php?op=guardaryeditar", 
+        type: "POST",
+        data: formData, 
+        contentType: false,
+        processData: false,
+
+        succes: function(daatos)
+        {
+            bootbox.alert(datos);
+            mostrarform(false);
+            tabla.ajax.reload();
+        }
+    });
+    limpiar();
 }
 
 //Ejecutamos la función init
