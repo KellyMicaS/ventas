@@ -27,8 +27,51 @@ switch ($_GET["op"]){
             print $rspta ? "Categoria editada exitosamente." : "No se pudo editar la categoria en la base de datos.";
         }
 
+         break;
+        //Si elijo la opcion desactivar ejecuta esta seccion del codigo
+        case 'desactivar':
+            $rspta = $categoria->desactivar($idcategoria);
+            echo $rspta ? "Categoria desactivada" : "No se pudo desactivar";
+            break;
+            case 'activar':
+                $rspta = $categoria->activar($idcategoria);
+                echo $rspta ? "Categoria activada" : "No se pudo activar";
+                case 'mostrar':
+                    $rspta = $categoria->motrar ($idcategoria);
+                    //Convertimos el resultado en json
+                    echo json_encode($rspta);
+                    break;
         
+        //creamos el caso listar
+        case 'listar':
+            $rspta= $categoria->listar();
+            //Vamos a declarar un array para guardar toda la información del arreglo
+            $data=Array();
+            while($reg=$rspta->fetch_object()){
+                $data[]=array(
+                    "0"=>$reg->idcategoria,
+                    "1"=>$reg->nombre,
+                    "2"=>$reg->descripcion,
+                    "3"=>$reg->($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                    '<span class="label bg-red">Desactivado</<span>',
+                    "4"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>'.
+                     ' <button class="btn btn-danger" onclick="desactivar('.$reg->idcategoria.')"><i class="fa fa-close"></i></button>':
+                     ' <button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>'.
+                     ' <button class="btn btn-primary" onclick="activar('$reg->idcategoria.')"><i class="fa fa-check"></i></button>'
+                );
+
+            }
+            //Vamos a generar información sobre datatable
+            $results=array(
+                "sEcho"=>1, //Información para el datatable
+                "iTotalRecords"=>count($data), //enviamos el total de registros del datatable
+                "iTotalDisplayRecords"=>($data), //enviamos total de registros a visualizar
+                "aaData"=>$data);
+                echo json_encode($results);
+                break;
+            
 }
+?>
 
 
 

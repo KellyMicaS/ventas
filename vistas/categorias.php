@@ -19,7 +19,7 @@ require 'header.php';
                                 
                                 <!--Centro del box-->
                                 <div class="panel-body table-responsive" id="listadoregistro">
-                                <table class="table table-striped table-bordered table-responsive table-condensed table-hover" id="listado">
+                                <table class="table table-striped table-bordered table-responsive table-condensed table-hover" id="tbllistado">
                                     <thead>
                                         <th>Id Categoría</th>
                                         <th>Nombre</th>

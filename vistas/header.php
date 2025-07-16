@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="../public/public/css/_all-skins.min.css">
         <link rel="stylesheet" href="../public/public/img/apple-touch-icon.png">
         <link rel="shorcut icon" href="../public/public/img/favicon.ico">
+        <!--DataTable-->
+        
     </head>
     <body class="hold-transition skin-yellow-light sidebar-mini">
         <!--Div que contiene toda la estructura del body-->
