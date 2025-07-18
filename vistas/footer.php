@@ -15,6 +15,15 @@
         <!--AdminLTE-->
         <script src="../public/public/js/app.js"></script>
 
+        <!--DATA TABLES-->
+        <script src="../public/public/datatables/jquery.dataTables.min.js"></script>
+        <script src="../public/public/datatables/dataTables.buttons.min.js"></script>
+        <script src="../public/public/datatables/buttons.html5.min.js"></script>
+        <script src="../public/public/datatables/buttons.colVis.min.js"></script>
+        <script src="../public/public/datatables/jszip.min.js"></script>
+        <script src="../public/public/datatables/pdfmake.min.js"></script>
+        <script src="../public/public/datatables/vfs_fonts.js"></script>
+
         <!--añadimos bootbox a nuestro proyecto-->
         <script src="../public/public/js/bootbox.min.js"></script>
     </body>

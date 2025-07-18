@@ -16,7 +16,9 @@
         <link rel="stylesheet" href="../public/public/img/apple-touch-icon.png">
         <link rel="shorcut icon" href="../public/public/img/favicon.ico">
         <!--DataTable-->
-        
+         <link rel="stylesheet" type="text/css" href="../public/public/datatables/jquery.dataTables.min.css">
+         <link rel="stylesheet" href="../public/public/datatables/buttons.dataTables.min.css">
+         <link rel="stylesheet" href="../public/public/datatables/responsive.dataTables.min.css">
     </head>
     <body class="hold-transition skin-yellow-light sidebar-mini">
         <!--Div que contiene toda la estructura del body-->

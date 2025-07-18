@@ -36,30 +36,32 @@ switch ($_GET["op"]){
             case 'activar':
                 $rspta = $categoria->activar($idcategoria);
                 echo $rspta ? "Categoria activada" : "No se pudo activar";
+                break;
                 case 'mostrar':
-                    $rspta = $categoria->motrar ($idcategoria);
+                    $rspta = $categoria->mostrar ($idcategoria);
                     //Convertimos el resultado en json
                     echo json_encode($rspta);
                     break;
         
         //creamos el caso listar
         case 'listar':
-            $rspta= $categoria->listar();
-            //Vamos a declarar un array para guardar toda la información del arreglo
+            $rspta =$categoria->listar();
+            //Vamos a declara un array para guardar 
+            // /toda la información en el arreglo
             $data=Array();
             while($reg=$rspta->fetch_object()){
                 $data[]=array(
                     "0"=>$reg->idcategoria,
                     "1"=>$reg->nombre,
                     "2"=>$reg->descripcion,
-                    "3"=>$reg->($reg->condicion)?'<span class="label bg-green">Activado</span>':
-                    '<span class="label bg-red">Desactivado</<span>',
+                    "3"=>($reg->condicion) ? '<span class="label bg-green">Activado</span>':
+                      '<span class="label bg-red">Desactivado</span>',
                     "4"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>'.
                      ' <button class="btn btn-danger" onclick="desactivar('.$reg->idcategoria.')"><i class="fa fa-close"></i></button>':
                      ' <button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>'.
-                     ' <button class="btn btn-primary" onclick="activar('$reg->idcategoria.')"><i class="fa fa-check"></i></button>'
-                );
+                     ' <button class="btn btn-primary" onclick="activar('.$reg->idcategoria.')"><i class="fa fa-check"></i></button>'
 
+                );
             }
             //Vamos a generar información sobre datatable
             $results=array(
@@ -71,9 +73,4 @@ switch ($_GET["op"]){
                 break;
             
 }
-?>
-
-
-
-
 ?>
